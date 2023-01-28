@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# process script
+while :
+do
+    echo "I am alive!" >> /tmp/my_process
+    sleep 2
+done

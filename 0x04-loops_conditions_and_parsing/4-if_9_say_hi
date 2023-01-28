@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# print same string 10 times except 1 iteration with different string
+
+i=0
+while [ $i -lt 10 ]; do
+    if [ $i -eq 9 ]
+    then
+	echo "Hi"
+    fi
+    echo "codingschool School"
+    i=$((i+1))
+done
