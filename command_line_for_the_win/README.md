@@ -29,5 +29,5 @@ Directory Name | Description
 ---|---
 command_line_for_the_win | Main directory with all .png files
 
-## Author
-Heindrick Cheung
+
+.

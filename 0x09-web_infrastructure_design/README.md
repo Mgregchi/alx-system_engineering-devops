@@ -20,5 +20,5 @@ Directory Name | Description
 ---|---
 0x09-web_infrastructure_design | files with link to imgur screenshots of web infrastructures
 
-## Author
-Heindrick Cheung
+
+.

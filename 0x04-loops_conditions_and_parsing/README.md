@@ -44,5 +44,5 @@ Directory Name | Description
 ---|---
 0x04-loops_conditions_and_parsing | All main files
 
-## Author
-Heindrick Cheung
+
+.

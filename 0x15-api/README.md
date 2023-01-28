@@ -32,5 +32,5 @@ Directory Name | Description
 ---|---
 0x15-api/ | Main folder with all Python scripts
 
-## Author
-Heindrick Cheung
+
+.

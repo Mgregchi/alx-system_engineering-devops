@@ -24,5 +24,5 @@ Directory Name | Description
 ---|---
 0x10-https_ssl | Main folder with all bash scripts
 
-## Author
-Heindrick Cheung
+
+.

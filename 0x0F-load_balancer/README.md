@@ -21,5 +21,5 @@ Directory Name | Description
 ---|---
 0x0F-load_balancer | main folder with scripts
 
-## Author
-Heindrick Cheung
+
+.

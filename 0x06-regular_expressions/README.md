@@ -32,5 +32,5 @@ File|Task
 0 directories, 11 files
 ```
 
-## Author
-Heindrick Cheung
+
+.

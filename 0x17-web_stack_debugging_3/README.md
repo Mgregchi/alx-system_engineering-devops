@@ -19,5 +19,5 @@ Directory Name | Description
 ---|---
 0x17-web_stack_debugging_3 | main folder for puppet files
 
-## Author
-Heindrick Cheung
+
+.

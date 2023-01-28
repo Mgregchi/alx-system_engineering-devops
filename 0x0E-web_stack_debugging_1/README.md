@@ -20,5 +20,5 @@ Directory Name | Description
 ---|---
 0x0E-web_stack_debugging_1 | scripts for Nginx web servers
 
-## Author
-Heindrick Cheung
+
+.

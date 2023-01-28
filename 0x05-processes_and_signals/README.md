@@ -46,5 +46,5 @@ Directory Name | Description
 ---|---
 0x05-processes_and_signals | main files
 
-## Author
-Heindrick Cheung
+
+.

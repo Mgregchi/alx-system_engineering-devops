@@ -163,6 +163,6 @@ Ex:
 10 directories, 67 files
 ```
 
-## Authors
-* Heindrick Cheung
+s
+* .
 * Brent Janski

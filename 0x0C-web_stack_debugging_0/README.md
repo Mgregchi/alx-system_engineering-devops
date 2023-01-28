@@ -21,5 +21,5 @@ Directory Name | Description
 ---|---
 0x0C-web_stack_debugging_0
 
-## Author
-Heindrick Cheung
+
+.

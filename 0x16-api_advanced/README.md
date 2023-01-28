@@ -24,5 +24,5 @@ Directory Name | Description
 ---|---
 0x16-api_advanced | main folder with all Python scripts/files
 
-## Author
-Heindrick Cheung
+
+.

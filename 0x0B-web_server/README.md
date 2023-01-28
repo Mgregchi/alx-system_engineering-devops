@@ -36,5 +36,5 @@ Directory Name | Description
 ---|---
 0x0B-web_server | Folder with all the main files
 
-## Author
-Heindrick Cheung
+
+.

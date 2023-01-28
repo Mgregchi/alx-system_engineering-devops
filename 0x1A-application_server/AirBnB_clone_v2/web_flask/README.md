@@ -49,5 +49,5 @@ web_flask/templates/ | All HTML files
 styles/ | All CSS files
 images/ | All images
 
-## Author
-Heindrick Cheung
+
+.

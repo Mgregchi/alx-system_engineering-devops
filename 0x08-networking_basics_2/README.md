@@ -30,5 +30,5 @@ Directory Name | Description
 ---|---
 0x08-networking_basics_2 | Main directory with answers and Bash scripts
 
-## Author
-Heindrick Cheung
+
+.

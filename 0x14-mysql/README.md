@@ -30,5 +30,5 @@ Directory Name | Description
 ---|---
 0x14-mysql/ | Main folder with all Bash Scripts to setup MYSQL primary replica
 
-## Author
-Heindrick Cheung
+
+.

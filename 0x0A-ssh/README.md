@@ -26,5 +26,5 @@ Directory Name | Description
 ---|---
 0x0A-ssh
 
-## Author
-Heindrick Cheung
+
+.

@@ -20,5 +20,5 @@ Directory Name | Description
 ---|---
 0x18-webstack_monitoring | folder for monitoring software files
 
-## Author
-Heindrick Cheung
+
+.

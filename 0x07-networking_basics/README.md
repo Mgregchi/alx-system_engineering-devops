@@ -32,5 +32,5 @@ Directory Name | Description
 ---|---
 0x07-networking_basics | Main directory with all answer files
 
-## Author
-Heindrick Cheung
+
+.

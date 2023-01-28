@@ -20,5 +20,5 @@ Directory Name | Description
 ---|---
 0x13-firewall | main folder
 
-## Author
-Heindrick Cheung
+
+.
