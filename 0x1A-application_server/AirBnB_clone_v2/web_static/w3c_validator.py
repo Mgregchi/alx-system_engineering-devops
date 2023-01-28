@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-W3C validator for codingschool School
+W3C validator for school School
 
 For HTML and CSS files.
 

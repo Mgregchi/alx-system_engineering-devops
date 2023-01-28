@@ -7,7 +7,7 @@ from datetime import datetime
 import os
 env.hosts = ["35.243.155.238", "34.73.31.23"]
 env.user = 'ubuntu'
-env.key_filename = '~/.ssh/codingschool'
+env.key_filename = '~/.ssh/school'
 
 
 def do_pack():

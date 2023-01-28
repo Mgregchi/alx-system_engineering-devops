@@ -2,5 +2,5 @@
 # install nginx web server and create html pages
 apt-get -y update
 apt-get install -y nginx
-echo "codingschool School" | sudo tee /usr/share/nginx/html/index.html
+echo "school School" | sudo tee /usr/share/nginx/html/index.html
 service nginx restart
