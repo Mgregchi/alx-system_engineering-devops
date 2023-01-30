@@ -1,29 +1,47 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <unistd.h>
-#include <sys/wait.h>
 
 /**
- * main - zombies
+ * infinite_while - Initializes an infinite while loop.
  *
- * Description: make five zombies
- * Return: 0 for success
+ * Return: 0 if interrupted by a signal.
+ */
+int infinite_while(void)
+{
+	while (1)
+	{
+		sleep(1);
+	}
+	return (0);
+}
+
+/**
+ * create_process - Creates a new process and \
+ * prints the PID of the new process.
+ */
+void create_process(void)
+{
+	int rc = fork();
+
+	if (rc == 0)
+	{
+		printf("Zombie process created, PID: %d\n", getpid());
+		exit(0);
+	}
+}
+
+/**
+ * main - Creates 5 zombie processes.
+ *
+ * Return: 0 if successful
  */
 int main(void)
 {
-	int i;
-	pid_t pidme;
-
-	i = 0;
-	while (i < 5)
-	{
-		pidme = fork();
-		if (pidme)
-			printf("Zombie process created, PID: %i\n", pidme);
-		else
-			exit(0);
-		i++;
-	}
-	sleep(100);
-	return (0);
+	create_process();
+	create_process();
+	create_process();
+	create_process();
+	create_process();
+	return (infinite_while());
 }
