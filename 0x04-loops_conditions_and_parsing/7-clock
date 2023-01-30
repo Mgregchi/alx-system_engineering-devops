@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 # display 12 hours and 59 minutes
 
-i=0
-j=1
-while [ $i -ne 13 ]; do
-     echo "Hour: $i"
-     i=$((i+1))
-     while [ $j -ne 60 ]; do
-     	   echo $j
-	   j=$((j+1))
-     done
-     j=1
+hour_counter=0
+while [ $hour_counter -lt 13 ]; do
+	echo "Hour: $hour_counter"
+	min_counter=0
+	while [ $min_counter -lt 59 ]; do
+		(( min_counter+=1 ))
+		echo "$min_counter"
+	done
+	(( hour_counter+=1 ))
 done

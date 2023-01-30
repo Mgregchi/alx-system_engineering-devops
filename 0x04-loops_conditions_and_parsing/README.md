@@ -1,6 +1,24 @@
 # 0x04. Loops, conditions and parsing
----
-## Description
+
+## Resources
+**Read or watch:**
+
+- Loops sample](https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_01.html)
+- [Variable assignment and arithmetic](https://tldp.org/LDP/abs/html/ops.html)
+- [Comparison operators](https://tldp.org/LDP/abs/html/comparison-ops.html)
+- [File test operators](https://tldp.org/LDP/abs/html/fto.html)
+- [Make your scripts portable](https://www.cyberciti.biz/tips/finding-bash-perl-python-portably-using-env.html)
+
+**man or help:**
+
+- env
+- cut
+- for
+- while
+- until
+- if
+
+## General Learning Objectives
 
 This project in the System engineering & DevOps ― Bash series is about:
 * How to create SSH keys
@@ -25,9 +43,9 @@ File|Task
 ├── 0-RSA_public_key.pub
 ├── 102-lets_parse_apache_logs
 ├── 10-fizzbuzz
-├── 1-for_school_school
-├── 2-while_school_school
-├── 3-until_school_school
+├── 1-for_best_school
+├── 2-while_best_school
+├── 3-until_best_school
 ├── 4-if_9_say_hi
 ├── 5-4_bad_luck_8_is_your_chance
 ├── 6-superstitious_numbers
