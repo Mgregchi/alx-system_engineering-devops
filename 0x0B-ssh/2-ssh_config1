@@ -1,0 +1,8 @@
+Host 18.234.145.112
+    Hostname 18.234.145.112
+    IgnoreUnkown AddKeysToAgent,UseKeychain
+    UseKeychain yes
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/school
+    IdentityFile ~/.ssh/id_rsa
+    PasswordAuthentication no
