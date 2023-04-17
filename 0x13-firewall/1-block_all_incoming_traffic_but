@@ -1,4 +1,17 @@
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
+# Configure ufw so that it blocks all incoming traffic, except the following TCP ports: 22 (SSH), 443 (HTTPS SSL), 80 (HTTP)
+
+# System update
+sudo apt-get update -y
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# Allow 22 (SSH)
 sudo ufw allow 22/tcp
-sudo ufw enable
+# Allow 443 (HTTPS SSL)
+sudo ufw allow 443/tcp
+
+# Allow 80 (HTTP)
+sudo ufw allow 80/tcp
+
+# Enable Firewall
+sudo ufw enable -y
