@@ -1,6 +1,14 @@
 # 0x14. Mysql
 ---
 
+## Concepts
+
+For this project, we expect you to look at these concepts:
+
+- [Database administration]()
+- [Web stack debugging]()
+- [[How to] Install mysql 5.7](https://gist.github.com/Mgregchi/2a260efa96cfa7885a40e6c7a5d3af11#file-how_to_install_mysql_5-7_ubuntu-md)
+
 ## Resources 
 
 **Read or watch:**
