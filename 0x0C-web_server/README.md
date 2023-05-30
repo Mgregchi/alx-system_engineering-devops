@@ -30,6 +30,21 @@ Logs files on Linux
 RFC 7231 (HTTP/1.1)
 RFC 7540 (HTTP/2)
 
+>> Fix /var/www/html/index.html: Permission denied
+```
+# 1. Change owner of /var/www/html directory to apache user, here: www-data
+sudo chown -R www-data:www-data /var/www/html
+
+# 2. Allow Group to edit
+sudo chmod -R 775 /var/www/html
+
+# 3. Add yourself to apache group(www-data)
+sudo usermod -a -G www-data ${USER}
+
+# if 3 does not work
+sudo chmod o+w /var/www/html
+```
+
 ### man or help:
 
 - scp
