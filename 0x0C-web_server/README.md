@@ -1,8 +1,42 @@
-# 0x0B. Web server
+# 0x0C. Web server
 ---
+
+## Concepts
+
+For this project, we expect you to look at this concept:
+
+- [What is a Child Process?]()
+
 ## Description
 
 This project in the System Engineering & Devops series is about:
+
+----
+Update
+----
+
+How the web works
+Nginx
+How to Configure Nginx
+Child process concept page
+Root and sub domain
+HTTP requests
+HTTP redirection
+Not found HTTP response code
+Logs files on Linux
+
+### For reference:
+
+RFC 7231 (HTTP/1.1)
+RFC 7540 (HTTP/2)
+
+### man or help:
+
+- scp
+- curl
+
+---
+
 * What DNS stands for
 * What is DNS main role
 * What are DNS record types for:
@@ -14,6 +48,8 @@ This project in the System Engineering & Devops series is about:
 * What is a child process
 * Why web server usually have a parent process and child processes
 * What are the main HTTP requests
+* [-y on apt-get command]https://askubuntu.com/questions/672892/what-does-y-mean-in-apt-get-y-install-command)
+
 
 ## How it works
 These scripts is automated to setup/deploy an Nginx webserver with minor configurations and transfer minimal settings and contents
@@ -34,7 +70,7 @@ File|Task
 ---
 Directory Name | Description
 ---|---
-0x0B-web_server | Folder with all the main files
+0x0C-web_server | Folder with all the main files
 
 
 .
