@@ -70,7 +70,7 @@ Questions/tasks can be found here [Tasks](./tasks/)
 File|Task
 ---|---
 0-firewall_ABC | answers
-1-block_all_incoming_traffic_but | commands to install ufw firewall
+0-block_all_incoming_traffic_but | commands to install ufw firewall
 100-port_forwarding | Firewalls can not only filter requests, they can also forward them.|
 
 
