@@ -82,4 +82,4 @@ Directory Name | Description
 0x0D-web_stack_debugging_0
 
 
-.
+- [AH00558: apache2 'ServerName' error](https://gist.github.com/Mgregchi/d85ca7059d06fb2f83d035c40fc66741)
