@@ -8,7 +8,7 @@ apt-get -y update
 apt-get install -y nginx
 
 # Create index.nginx-debian.html file with "Hello World" content
-echo "Hello World" > /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" > /var/www/html/index.nginx-debian.html
 
 # Add redirection rule for /redirect_me path
 cm="rewrite ^/redirect_me https://github.com/mgregchi permanent;"
@@ -22,4 +22,4 @@ err="\\\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\t
 sudo sed -i "44i $err" /etc/nginx/sites-available/default
 
 # Restart Nginx service
-service nginx restart
+sudo service nginx restart
