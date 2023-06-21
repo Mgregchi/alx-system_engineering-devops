@@ -17,28 +17,12 @@ sudo sed -i "66i $cm" /etc/nginx/sites-available/default
 # Create custom_404.html file with "Ceci n'est pas une page" content
 echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 
-# Delete all content in /etc/nginx/sites-available/default
-truncate -s 0 /etc/nginx/sites-available/default
-
-# Configure Nginx default site
-echo "server {
-    listen 80;
-    listen [::]:80 default_server;
-    root   /var/www/html/;
-    index  index.html;
-
-    # Redirect /redirect_me path with a 301 status code
-    location /redirect_me {
-        return 301 https://github.com/mgregchi;
-    }
-
-    error_page 404 /custom_404.html;
-
-    location = /custom_404.html {
-        root /var/www/html;
-        internal;
-    }    
-}" > /etc/nginx/sites-available/default
+# Check if the closing braces '}' for the server block exists
+if grep -q "}" /etc/nginx/sites-available/default; then
+    # Add the error page configuration before the closing braces
+    err="\\\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}\n"
+    sudo sed -i "/}/i $err" /etc/nginx/sites-available/default
+fi
 
 # Restart Nginx service
 sudo service nginx restart
