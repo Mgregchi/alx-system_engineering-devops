@@ -1,16 +1,27 @@
 #!/usr/bin/env bash
-# install nginx web server and create html pages
+# Install Nginx web server and create HTML pages
 
+# Update package lists
 apt-get update
+
+# Install Nginx package
 apt-get install -y nginx
+
+# Create index.html file with "Hello World!" content
 echo "Hello World!" > /var/www/html/index.html
+
+# Configure Nginx default site
 echo "server {
     listen 80;
     listen [::]:80 default_server;
     root   /var/www/html/;
     index  index.html;
+
+    # Redirect /redirect_me path with a 301 status code
     location /redirect_me {
         return 301 https://github.com/mgregchi;
     }
 }" > /etc/nginx/sites-available/default
-service nginx restart
+
+# Restart Nginx service
+sudo service nginx restart
