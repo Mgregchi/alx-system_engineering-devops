@@ -1,13 +1,25 @@
 #!/usr/bin/env bash
-# install nginx web server and create html pages
-WHERE="/etc/nginx/sites-available/default"
-ADD="\\\tlocation \/redirect_me {\n\t\treturn 301 https://youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
-E404="\\\n\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}\n"
+# Install Nginx web server and create HTML pages
 
+# Update package lists
 apt-get -y update
+
+# Install Nginx package
 apt-get install -y nginx
-echo "school School" | sudo tee /usr/share/nginx/html/index.html
-sed -i "30i $ADD" $WHERE
-echo -e "Ceci n'est pas une page\n" | sudo tee /usr/share/nginx/html/custom_404.html
-sed -i "48i $E404" $WHERE
+
+# Create index.nginx-debian.html file with "Hello World" content
+echo "Hello World" > /var/www/html/index.nginx-debian.html
+
+# Add redirection rule for /redirect_me path
+cm="rewrite ^/redirect_me https://github.com/mgregchi permanent;"
+sudo sed -i "66i $cm" /etc/nginx/sites-available/default
+
+# Create custom_404.html file with "Ceci n'est pas une page" content
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+
+# Add error page configuration for 404 errors
+err="\\\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}\n"
+sudo sed -i "44i $err" /etc/nginx/sites-available/default
+
+# Restart Nginx service
 service nginx restart

@@ -2,43 +2,20 @@
 
 # Install Nginx package
 package { 'nginx':
-  ensure => installed,
+  provider => 'apt',
 }
 
-# Ensure Nginx service is running and enabled
-service { 'nginx':
-  ensure => running,
-  enable => true,
+# Create index.nginx-debian.html file with "Hello World!" content
+exec { 'home_page':
+  command => '/usr/bin/sudo /bin/echo Hello World! > /var/www/html/index.nginx-debian.html',
 }
 
-# Create the index.html file with "Hello World!" content
-file { '/var/www/html/index.html':
-  content => '<html><body>Hello World!</body></html>',
+# Configure redirection to YouTube for /redirect_me path
+exec { 'redirect_page':
+  command => '/usr/bin/sudo /bin/sed -i "66i rewrite ^/redirect_me https://github.com/mgregchi permanent;" /etc/nginx/sites-available/default',
 }
 
-# Configure Nginx default site
-file { '/etc/nginx/sites-available/default':
-  content => '
-    server {
-        listen 80;
-        root /var/www/html;
-        
-        # Handle requests for the root path
-        location / {
-            try_files $uri $uri/ =404;
-        }
-        
-        # Redirect requests for /redirect_me path with a 301 status code
-        location /redirect_me {
-            return 301 http://example.com/;
-        }
-    }
-  ',
-  notify => Service['nginx'],
-}
-
-# Reload Nginx configuration if changes are made
-exec { 'nginx_reload':
-  command     => 'service nginx reload',
-  refreshonly => true,
+# Start Nginx service
+exec { 'start_server':
+  command => '/usr/bin/sudo /usr/sbin/service nginx start',
 }
