@@ -13,3 +13,11 @@ sudo service nginx restart
 
 # Create an index.html file with "Hello World!"
 sudo sh -c 'echo "<html><body>Hello World!</body></html>" > /var/www/html/index.html'
+
+# Verify Nginx configuration
+response=$(curl -s http://localhost)
+if [[ $response == *"Hello World!"* ]]; then
+    echo "Nginx is successfully configured."
+else
+    echo "There was an error configuring Nginx."
+fi
