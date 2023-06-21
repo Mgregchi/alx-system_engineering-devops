@@ -8,7 +8,7 @@ apt-get -y update
 apt-get install -y nginx
 
 # Create index.nginx-debian.html file with "Hello World" content
-echo "Ceci n'est pas une page" > /var/www/html/index.nginx-debian.html
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
 # Add redirection rule for /redirect_me path
 cm="rewrite ^/redirect_me https://github.com/mgregchi permanent;"
