@@ -17,9 +17,15 @@ sudo sed -i "66i $cm" /etc/nginx/sites-available/default
 # Create custom_404.html file with "Ceci n'est pas une page" content
 echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 
-# Add error page configuration for 404 errors
-err="\\\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}\n"
-sudo sed -i "44i $err" /etc/nginx/sites-available/default
+# Check if the error page configuration exists
+if grep -q "error_page 404 /custom_404.html;" /etc/nginx/sites-available/default; then
+    # Replace the existing error page configuration
+    sudo sed -i "s/error_page 404 \/custom_404.html;/\\\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}/" /etc/nginx/sites-available/default
+else
+    # Add the error page configuration at the end of file if it doesn't exist
+    err="\\\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}\n"
+    sudo sed -i "\$a$err" /etc/nginx/sites-available/default
+fi
 
 # Restart Nginx service
 sudo service nginx restart
