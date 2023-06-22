@@ -12,7 +12,12 @@ exec { 'install_nginx':
 
 # Create index.nginx-debian.html file with "Hello World!" content
 exec { 'home_page':
-  command => '/usr/bin/sudo /bin/echo Hello World! > /var/www/html/index.nginx-debian.html',
+  command => '/usr/bin/sudo /bin/echo Hello World! > /var/www/html/index.html',
+}
+
+# Create custom_404.html file with "Ceci n'est pas une page" content
+exec { 'custom_404':
+  command => '/usr/bin/sudo /bin/echo Ceci nest pas une page > /var/www/html/custom_404.html',
 }
 
 $config = "server {
@@ -33,7 +38,7 @@ $config = "server {
         internal;
     }
 
-    add_header X-Served-By $hostname;
+    add_header X-Served-By '$hostname';
 }"
 
 # Custom Configuration
@@ -44,5 +49,5 @@ exec { 'add_config':
 
 # Start Nginx service
 exec { 'start_server':
-  command => '/usr/bin/sudo /usr/sbin/service nginx start',
+  command => '/usr/bin/sudo /usr/sbin/service nginx restart',
 }
