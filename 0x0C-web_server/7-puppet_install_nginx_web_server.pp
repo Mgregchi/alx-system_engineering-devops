@@ -12,7 +12,7 @@ exec { 'home_page':
 
 # Configure redirection to Github for /redirect_me path
 exec { 'redirect_page':
-  command => '/usr/bin/sudo /bin/sed -i "66i rewrite ^/redirect_me https://github.com/mgregchi permanent;" /etc/nginx/sites-available/default',
+  command => '/usr/bin/sudo /bin/sed -i "66i rewrite ^/redirect_me https://github.com/mgregchi;" /etc/nginx/sites-available/default',
 }
 
 # Start Nginx service

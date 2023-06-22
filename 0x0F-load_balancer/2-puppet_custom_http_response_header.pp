@@ -1,8 +1,13 @@
 # Puppet manifest to install and configure Nginx on Ubuntu
 
+# Update package lists
+exec { 'install_update':
+    command => '/usr/bin/sudo /usr/bin/apt-get update',
+}
+
 # Install Nginx package
-package { 'nginx':
-  provider => 'apt',
+exec { 'install_nginx':
+    command => '/usr/bin/sudo /usr/bin/apt-get install -y nginx',
 }
 
 # Create index.nginx-debian.html file with "Hello World!" content
@@ -10,15 +15,32 @@ exec { 'home_page':
   command => '/usr/bin/sudo /bin/echo Hello World! > /var/www/html/index.nginx-debian.html',
 }
 
-# Configure redirection to Github for /redirect_me path
-exec { 'redirect_page':
-  command => '/usr/bin/sudo /bin/sed -i "66i rewrite ^/redirect_me https://github.com/mgregchi permanent;" /etc/nginx/sites-available/default',
+$config = "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root   /var/www/html/;
+    index  index.html;
+
+    # Redirect /redirect_me path with a 301 status code
+    location /redirect_me {
+        return 301 https://github.com/mgregchi;
+    }
+
+    error_page 404 /custom_404.html;
+
+    location = /custom_404.html {
+        root /var/www/html;
+        internal;
+    }
+
+    add_header X-Served-By $hostname;
+}"
+
+# Custom Configuration
+exec { 'add_config':
+  command => "/usr/bin/sudo /usr/bin/echo '${config}' > /etc/nginx/sites-available/default",
 }
 
-# Add X-Served-By $hostname to http header
-exec { 'add_custom_http_header':
-  command => '/usr/bin/sudo /bin/sed -i "^/location \/redirect_me {[^}]*}/a add_header X-Served-By $hostname;" /etc/nginx/sites-available/default',
-}
 
 # Start Nginx service
 exec { 'start_server':
