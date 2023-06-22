@@ -33,7 +33,7 @@ This project in the System Engineering & DevOps-Web stack series is about:
 ---
 File|Task
 ---|---
-0-monitor_your_nginx_traffic | Access id and Access key to Sumo Logic monitoring software
+2-setup_datadog | Datadog dashboard id
 
 ## Directories
 ---
