@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+sudo echo '' > /etc/nginx/sites-available/default
+
