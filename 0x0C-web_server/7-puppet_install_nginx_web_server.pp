@@ -10,7 +10,7 @@ exec { 'home_page':
   command => '/usr/bin/sudo /bin/echo Hello World! > /var/www/html/index.nginx-debian.html',
 }
 
-# Configure redirection to YouTube for /redirect_me path
+# Configure redirection to Github for /redirect_me path
 exec { 'redirect_page':
   command => '/usr/bin/sudo /bin/sed -i "66i rewrite ^/redirect_me https://github.com/mgregchi permanent;" /etc/nginx/sites-available/default',
 }
