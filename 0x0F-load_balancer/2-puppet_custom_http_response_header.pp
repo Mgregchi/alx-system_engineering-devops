@@ -48,6 +48,6 @@ exec { 'add_config':
 
 
 # Start Nginx service
-exec { 'start_server':
+exec { 'restart_server':
   command => '/usr/bin/sudo /usr/sbin/service nginx restart',
 }
