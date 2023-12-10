@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-# configure my domain zone so that the subdomain www points to load balancer
+# print domains and subdomains
 
-func()
-{
-    if [ $# -eq 2 ]; then
-	dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tail -n 1 | awk '{split($1, spl, ".")} {printf "The subdomain %s is a %s record and points to %s\n",spl[1],$4,$5}'
-    elif [ $# -eq 1 ]; then
-	for sub in 'www' 'lb-01' 'web-01' 'web-02'; do
-	    fdqn=$sub.$1
-	    dig "$fdqn" | grep -A1 'ANSWER SECTION:' | tail -n 1 | awk '{split($1, spl, ".")} {printf "The subdomain %s is a %s record and points to %s\n",spl[1],$4,$5}'
-	done
-    fi
+print_domain_subdomain () {
+    dig "$1" | grep -A1 'ANSWER SECTION:' | sed -r "s/$1./$2/g" | awk -F" " ' NR==2 { print "The subdomain " $1 " is a " $4 " record and points to " $5 }'
 }
 
-func "$@"
+if [ "$#" -eq 2 ]
+then
+    print_domain_subdomain "$2.$1" "$2"
+else
+    print_domain_subdomain "www.$1" "www"
+    print_domain_subdomain "lb-01.$1" "lb-01"
+    print_domain_subdomain "web-01.$1" "web-01"
+    print_domain_subdomain "web-02.$1" "web-02"
+fi
