@@ -52,8 +52,8 @@ frontend http_front
 
 backend http_back
 	balance roundrobin
-        server 404-web-01 34.73.47.85:80 check
-        server 404-web-02 34.73.31.23:80 check
+        server 138287-web-01 54.175.251.3:80 check
+        server 138287-web-02 18.210.19.4:80 check
 
 frontend www-https
          bind *:443 ssl crt /etc/haproxy/certs/www.heindrickcheung.site.pem
@@ -64,8 +64,8 @@ frontend www-https
 
 backend www-backend
 	redirect scheme https if !{ ssl_fc }
-        server 404-web-01 35.243.155.238:80 check
-        server 404-web-02 34.73.31.23:80 check
+        server 138287-web-01 54.175.251.3:80 check
+        server 138287-web-02 18.210.19.4:80 check
 
 backend letsencrypt-backend
         server letsencrypt 127.0.0.1:54321
